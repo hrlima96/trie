@@ -1,10 +1,10 @@
 class Trie:
-    
+
     palavras = []
-    
+
     def __str__(self):
         return str(self.palavras)
-    
+
     def incluir(self, palavra):
         if len(self.palavras) == 0:
             self.palavras.append(palavra)
@@ -15,7 +15,7 @@ class Trie:
                 if palavra[:i] in self.palavras:
                     self.palavras[self.palavras.index(palavra[:i]) + 1].append(palavra[i:])
                     return
-                        
+
             for x in range(len(self.palavras)):
                 for i in range(len(self.palavras[x])):
                     if palavra == self.palavras[x][:i]:
@@ -40,22 +40,3 @@ class Trie:
                     for x in range(len(self.palavras[j + 1])): #percorre o array referente ao pedaco da palavra
                         if palavra[i:] in self.palavras[j + 1][x]:
                             print aux + self.palavras[j + 1][x]
-
-
-
-
-x = Trie()
-x.incluir("Pato")
-print x
-x.incluir("Patota")
-print x
-x.incluir("Patotinha")
-print x
-x.incluir("Pa")
-print x
-x.incluir("Hugo")
-print x
-x.incluir("Hu")
-print x
-x.busca("Hu")
-x.busca("Pato")
